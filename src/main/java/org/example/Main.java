@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        //testing
+        //UPDATES BRANCH
         int bImageCounter = 0;
         int iterationCounter = 0;
         int rgbSum = 0;
