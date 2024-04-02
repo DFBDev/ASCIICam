@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        //testing
+        int bImageCounter = 0;
         int iterationCounter = 0;
         int rgbSum = 0;
         try (FrameGrabber fg = new OpenCVFrameGrabber(0)){ //Instantiating frame-grabber with primary camera in try-with-resources statement.
