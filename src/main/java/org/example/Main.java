@@ -25,11 +25,11 @@ public class Main {
                BufferedImage bi = j2d.getBufferedImage(frame);
 
                //Loop for processing pixels of image/video frame.
-               //Outer for-loop is responsible for transversing the image horizontally, and moving forward 10 pixels after each iteration; ultimately treats the image as a collection of 10x10 pixel columns.
-               //Nested for-loop is responsible for transversing vertically on each column and capturing 10x10 pixel sub-image.
+               //Outer for-loop is responsible for transversing the image horizontally, and moving forward 5 pixels after each iteration; ultimately treats the entire image as a collection of 5x5 pixel columns.
+               //Nested for-loop is responsible for transversing vertically on each column and capturing 5x5 pixel sub-image.
                for (int k = 0; k < bi.getWidth(); k = k + 5) {
                    for (int r = 0; r < bi.getHeight(); r = r + 5){
-                       BufferedImage subImage = bi.getSubimage(k,r, 5,5); //10x10 pixel sub-image.
+                       BufferedImage subImage = bi.getSubimage(k,r, 5,5); //5x5 pixel sub-image.
                        for (int i = 0; i < subImage.getWidth(); i++) { //Calculating average RGB value for sub-image.
                            for (int j = 0; j < subImage.getHeight(); j++){
                                Color rgbValues = new Color(subImage.getRGB(i, j));
