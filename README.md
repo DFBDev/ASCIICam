@@ -20,7 +20,8 @@ cell, onto JPanel stored in JFrame.
 * Main.java -> customJPanel.java
 
 ## Releases: 
-v1.0.0 - Contains all necessary code to capture camera frames and display them using an "ASCII Filter"; ultimately producing a video filter.
+* v1.0.0 - Contains all necessary code to capture camera frames and display them using an "ASCII Filter"; ultimately producing a video filter.
+* v1.0.2 - Doubled resolution for finer images. Added more detailed comments in both Main.java and customJPaenl.java. Fixed symbol duplicate.
 
 ## How to run locally.
 *COMING SOON*
