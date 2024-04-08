@@ -18,8 +18,8 @@ public class customJPanel extends JPanel {
         //Painting ASCII symbols on JPanel in the same order that sub-images from Main were processed.
         //The amount of symbols painted on JPanel matches the sub-images collected from the original image/frame.
         //The RGB averages are passed from Main are processed in-order. An ASCII symbol is painted depending on the current average being processed.
-        for (int i = 0; i < 1280; i = i + 20) {
-            for (int j = 0; j < 960; j = j + 20){
+        for (int i = 0; i < 1280; i = i + 10) {
+            for (int j = 0; j < 960; j = j + 10){
                 if (rgbArray.get(counter) > 0 && rgbArray.get(counter) <= 34){
                     g.drawString(" ", i + 150, j + 200);
                 }
@@ -33,7 +33,7 @@ public class customJPanel extends JPanel {
                     g.drawString(",", i + 150, j + 200);
                 }
                 else if (rgbArray.get(counter) >= 50 && rgbArray.get(counter) <= 54) {
-                    g.drawString("-", i + 150, j + 200);
+                    g.drawString("~", i + 150, j + 200);
                 }
                 else if (rgbArray.get(counter) >= 55 && rgbArray.get(counter) <= 59) {
                     g.drawString("-", i + 150, j + 200);
@@ -107,9 +107,12 @@ public class customJPanel extends JPanel {
                 else if (rgbArray.get(counter) >= 250 && rgbArray.get(counter) <= 255) {
                     g.drawString("@", i + 150, j + 200);
                 }
-                counter += 1;
+
+                if (counter != rgbArray.size()) {
+                    counter += 1;
+                }
             }
-        };
+        }
         //Resetting counter.
         counter = 0;
     }

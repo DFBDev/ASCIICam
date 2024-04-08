@@ -9,7 +9,6 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         //UPDATES BRANCH
-        int bImageCounter = 0;
         int iterationCounter = 0;
         int rgbSum = 0;
         try (FrameGrabber fg = new OpenCVFrameGrabber(0)){ //Instantiating frame-grabber with primary camera in try-with-resources statement.
@@ -28,22 +27,22 @@ public class Main {
                //Loop for processing pixels of image/video frame.
                //Outer for-loop is responsible for transversing the image horizontally, and moving forward 10 pixels after each iteration; ultimately treats the image as a collection of 10x10 pixel columns.
                //Nested for-loop is responsible for transversing vertically on each column and capturing 10x10 pixel sub-image.
-               for (int k = 0; k < bi.getWidth(); k = k + 10) {
-                   for (int r = 0; r < bi.getHeight(); r = r + 10){
-                       BufferedImage subimage = bi.getSubimage(k,r, 10,10); //10x10 pixel sub-image.
-                       for (int i = 0; i < subimage.getWidth(); i++) { //Calculating average RGB value for sub-image.
-                           for (int j = 0; j < subimage.getHeight(); j++){
-                               Color rgbValues = new Color(subimage.getRGB(i, j));
+               for (int k = 0; k < bi.getWidth(); k = k + 5) {
+                   for (int r = 0; r < bi.getHeight(); r = r + 5){
+                       BufferedImage subImage = bi.getSubimage(k,r, 5,5); //10x10 pixel sub-image.
+                       for (int i = 0; i < subImage.getWidth(); i++) { //Calculating average RGB value for sub-image.
+                           for (int j = 0; j < subImage.getHeight(); j++){
+                               Color rgbValues = new Color(subImage.getRGB(i, j));
                                rgbSum = rgbSum + rgbValues.getRed() + rgbValues.getBlue() + rgbValues.getGreen();
                                iterationCounter++; //Used as divisor for rgb value total later on to calculate the average.
-                           };
-                       };
+                           }
+                       }
                        rgbValArray.add(rgbSum / (iterationCounter * 3));
                        //Resetting values.
                        rgbSum = 0;
                        iterationCounter = 0;
-                   };
-               };
+                   }
+               }
                 //Creating JPanel, setting properties of JFrame container, adding JPanel to JFrame container.
                JPanel jp = new customJPanel(rgbValArray);
                jf.setVisible(true);
@@ -53,6 +52,6 @@ public class Main {
         }
         catch (FrameGrabber.Exception e) {
             System.out.print("PROGRAM ERROR: " + e);
-        };
+        }
     }
 }
